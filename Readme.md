@@ -61,7 +61,7 @@ The backend:
     - WebSockets (e.g. scan started, scan progress, scan completed, scan failed)
 ---
 
-## 🎨 Frontend Responsibilities (React + TypeScript)
+## Frontend Responsibilities (React + TypeScript)
 
 The frontend:
 
@@ -87,7 +87,7 @@ Optional UX enhancements (if implemented):
 
 ---
 
-## 📦 Containerization & Deployment
+##  Containerization & Deployment
 
 Both the **backend** and **frontend** are **Dockerized** to simplify:
 
@@ -103,11 +103,11 @@ The project can be started locally by building and running the Docker images (or
 4. Start OSINT scans without extra manual setup
 
 
-### 🐳 Docker Run Instructions (Backend + Frontend)
+### Docker Run Instructions (Backend + Frontend)
 
 You can run the application either by building each image manually or by using `docker-compose`.
 
-## 🚀 Option 1: Run with Docker Compose (recommended)
+##  Option 1: Run with Docker Compose (recommended)
 
 Once started:
 

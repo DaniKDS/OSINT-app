@@ -15,7 +15,6 @@ class WebSocketConfig : WebSocketMessageBrokerConfigurer {
             .setAllowedOriginPatterns("*")
             .withSockJS()              
     }
-
     override fun configureMessageBroker(registry: MessageBrokerRegistry) {
         registry.enableSimpleBroker("/topic")
         registry.setApplicationDestinationPrefixes("/app")

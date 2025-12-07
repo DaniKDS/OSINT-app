@@ -16,7 +16,7 @@ class ScanService(
     private val scanRepository: ScanRepository,
     private val scanResultRepository: ScanResultRepository,
     private val mockScanRunner: MockScanRunner
-//    private val dockerScanRunner: DockerScanRunner
+    //private val dockerScanRunner: DockerScanRunner
 ) {
 
     @Transactional
@@ -29,12 +29,18 @@ class ScanService(
         val saved = scanRepository.saveAndFlush(scan)
 
         mockScanRunner.runScan(saved.id!!)
-        //run docker tool instead of mock 
-//        dockerScanRunner.runScan(
-//            scanId = saved.id!!,
-//            domain = saved.domain,
-//            tool = saved.tool
-//        )
+        // NOTE: Using mockScanRunner instead of dockerScanRunner because the official
+        // theHarvester Docker image is currently broken (entrypoint failure) and cannot be
+        // executed reliably inside our containerized environment. The image fails to run due
+        // to missing dependencies and incorrect script paths, causing the container to exit
+        // immediately. To keep the application functional end-to-end and allow UI development
+        // and scan lifecycle testing, the mock implementation is used as a temporary fallback.
+
+        //dockerScanRunner.runScan(
+        //scanId = saved.id!!,
+        //domain = saved.domain,
+        //tool = saved.tool
+        //)
         
         return saved.toDto()
     }

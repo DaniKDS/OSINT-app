@@ -79,12 +79,11 @@ The frontend:
 ## Frontend Screenshots
 
 ### Scan Dashboard
-![Scan Dashboard](<img width="654" height="629" alt="image" src="https://github.com/user-attachments/assets/8f01d304-495f-4282-b4f3-13e7d12de7f6" />
-)
+![Scan Dashboard](https://github.com/user-attachments/assets/8f01d304-495f-4282-b4f3-13e7d12de7f6)
 
 ### Scan Results Modal
-![Scan Results](<img width="753" height="494" alt="image" src="https://github.com/user-attachments/assets/298e8abc-bcf3-4e29-a643-df8df2e89d57" />
-)
+![Scan Results](https://github.com/user-attachments/assets/298e8abc-bcf3-4e29-a643-df8df2e89d57)
+
 
 
 ---

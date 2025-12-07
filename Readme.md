@@ -105,31 +105,35 @@ The project can be started locally by building and running the Docker images (or
 
 ### Docker Run Instructions (Backend + Frontend)
 
-Run Application Using Docker Hub Images
+🚀 Deployment & Running the Application with Docker
 
-You can run the full OSINT application without cloning the repository, simply by pulling the published Docker images.
+This project provides pre-built Docker images for both the backend and frontend, allowing anyone to run the full OSINT application without installing any dependencies or building the project locally.
 
-1. Pull backend image
+The images are hosted publicly on Docker Hub under my namespace.
+
+🐳 1. Pull the Backend Image
 docker pull danielcordis/osint-backend:latest
 
-2. Pull frontend image
-docker pull danielcordis/osint-frontend:latest
 
-3. Run backend
+Run the backend:
+
 docker run -p 8082:8082 danielcordis/osint-backend:latest
 
-4. Run frontend
+
+Backend API available at:
+http://localhost:8082/api/scans
+
+🐳 2. Pull the Frontend Image
+docker pull danielcordis/osint-frontend:latest
+
+
+Run the frontend:
+
 docker run -p 5173:80 danielcordis/osint-frontend:latest
 
-Access the app:
 
-Frontend: http://localhost:5173
-
-Backend API: http://localhost:8082/api/scans
-
-##locally
-
-You can run the application either by building each image manually or by using `docker-compose`.
+Frontend available at:
+http://localhost:5173
 
 ##  Option 1: Run with Docker Compose (recommended)
 

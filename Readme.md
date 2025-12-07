@@ -76,14 +76,16 @@ The frontend:
     - Update scan status in real time
     - Optionally show alerts / notifications of updates
 
-Optional UX enhancements (if implemented):
+## Frontend Screenshots
 
-- Progress bars on scan cards
-- Toast / banner alerts with a backlog of notifications
-- Drag-and-drop reordering of scan cards (persisted across refresh)
-- Rich “tool summary” UI showing when to use Amass vs theHarvester
-- Direct scan detail URLs (`/scans/:id`) integrated into navigation
-- Transitions, animations, and form validation for polished UX
+### Scan Dashboard
+![Scan Dashboard](<img width="932" height="865" alt="image" src="https://github.com/user-attachments/assets/841fa7bb-379d-4c9f-8cb9-9206e859dbdc" />
+)
+
+### Scan Results Modal
+![Scan Results](<img width="1026" height="670" alt="image" src="https://github.com/user-attachments/assets/317a96c4-4c35-4c54-9411-a15423216152" />
+)
+
 
 ---
 

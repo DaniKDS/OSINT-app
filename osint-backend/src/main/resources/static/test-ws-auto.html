@@ -1,0 +1,53 @@
+<!--A simple HTML page to demonstrate real-time scan progress updates via WebSocket and STOMP protocol.-->
+<!--http://localhost:8082/test-ws-auto.html-->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Scan demo – real-time progress</h1>
+
+<button onclick="startScan()">Start Scan</button>
+
+<pre id="log"></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+
+<script>
+    const log = m => document.getElementById('log').textContent += m + "\n";
+
+    function startScan() {
+        log("Creating scan...");
+
+        fetch("http://localhost:8082/api/scans", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                domain: "google.com",
+                tool: "THE_HARVESTER"
+            })
+        })
+            .then(r => r.json())
+            .then(scan => {
+                log("Scan created with ID: " + scan.id);
+
+                connectWebSocket(scan.id);
+            });
+    }
+
+    function connectWebSocket(scanId) {
+        const socket = new SockJS('http://localhost:8082/ws');
+        const stomp = Stomp.over(socket);
+
+        stomp.connect({}, () => {
+            log("WS connected. Subscribing to /topic/scans/" + scanId);
+
+            stomp.subscribe("/topic/scans/" + scanId, msg => {
+                log("Update: " + msg.body);
+            });
+        });
+    }
+</script>
+
+</body>
+</html>

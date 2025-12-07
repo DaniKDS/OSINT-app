@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Scan updates</h1>
+<pre id="log"></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+<script>
+    const log = m => document.getElementById('log').textContent += m + "\n";
+
+    const socket = new SockJS('http://localhost:8082/ws');
+    const stompClient = Stomp.over(socket);
+
+    // TODO: Replace with a valid scan ID
+    const scanId = 'f01d0ebe-651d-44b4-be90-9d485094761e';
+
+    stompClient.connect({}, () => {
+        log("Connected");
+
+        stompClient.subscribe('/topic/scans/' + scanId, (message) => {
+            log(message.body);
+        });
+    });
+</script>
+</body>
+</html>

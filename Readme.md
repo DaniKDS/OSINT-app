@@ -135,7 +135,7 @@ docker run -p 5173:80 danielcordis/osint-frontend:latest
 Frontend available at:
 http://localhost:5173
 
-##  Option 2: Run with Docker Compose (recommended)
+##  Option 2: Run with Docker Compose
 
 Once started:
 
